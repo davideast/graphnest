@@ -1,0 +1,555 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		630ED9CE1965F742000FE14C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 630ED9CD1965F742000FE14C /* Foundation.framework */; };
+		630ED9D01965F742000FE14C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 630ED9CF1965F742000FE14C /* CoreGraphics.framework */; };
+		630ED9D21965F742000FE14C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 630ED9D11965F742000FE14C /* UIKit.framework */; };
+		630ED9D81965F742000FE14C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 630ED9D61965F742000FE14C /* InfoPlist.strings */; };
+		630ED9DA1965F742000FE14C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 630ED9D91965F742000FE14C /* main.m */; };
+		630ED9DE1965F742000FE14C /* FBSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 630ED9DD1965F742000FE14C /* FBSAppDelegate.m */; };
+		630ED9E11965F742000FE14C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 630ED9DF1965F742000FE14C /* Main.storyboard */; };
+		630ED9E91965F742000FE14C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 630ED9E81965F742000FE14C /* Images.xcassets */; };
+		630ED9F01965F742000FE14C /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 630ED9EF1965F742000FE14C /* XCTest.framework */; };
+		630ED9F11965F742000FE14C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 630ED9CD1965F742000FE14C /* Foundation.framework */; };
+		630ED9F21965F742000FE14C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 630ED9D11965F742000FE14C /* UIKit.framework */; };
+		630ED9FA1965F742000FE14C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 630ED9F81965F742000FE14C /* InfoPlist.strings */; };
+		630ED9FC1965F742000FE14C /* GraphnestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 630ED9FB1965F742000FE14C /* GraphnestTests.m */; };
+		630EDA071965FCEF000FE14C /* FBSFirebaseLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 630EDA061965FCEF000FE14C /* FBSFirebaseLoginViewController.m */; };
+		630EDA0A1965FD02000FE14C /* FBSNestLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 630EDA091965FD02000FE14C /* FBSNestLoginViewController.m */; };
+		630EDA0D1965FD17000FE14C /* FBSGraphViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 630EDA0C1965FD17000FE14C /* FBSGraphViewController.m */; };
+		630EDA101965FD26000FE14C /* FBSMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 630EDA0F1965FD26000FE14C /* FBSMainViewController.m */; };
+		634B46191966054A00ECF659 /* FirebaseSimpleLogin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 634B46181966054A00ECF659 /* FirebaseSimpleLogin.framework */; };
+		634B461B1966056100ECF659 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 634B461A1966056100ECF659 /* Accounts.framework */; };
+		634B461D1966056700ECF659 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 634B461C1966056700ECF659 /* Social.framework */; };
+		7A493F631C324B57AAEFCD02 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F7290630D9DD42CCACC646AC /* libPods.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		630ED9F31965F742000FE14C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 630ED9C21965F742000FE14C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 630ED9C91965F742000FE14C;
+			remoteInfo = Graphnest;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		31C2B173C1CD487EB4F6FBD4 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		630ED9CA1965F742000FE14C /* Graphnest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Graphnest.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		630ED9CD1965F742000FE14C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		630ED9CF1965F742000FE14C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		630ED9D11965F742000FE14C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		630ED9D51965F742000FE14C /* Graphnest-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Graphnest-Info.plist"; sourceTree = "<group>"; };
+		630ED9D71965F742000FE14C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		630ED9D91965F742000FE14C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		630ED9DB1965F742000FE14C /* Graphnest-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Graphnest-Prefix.pch"; sourceTree = "<group>"; };
+		630ED9DC1965F742000FE14C /* FBSAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FBSAppDelegate.h; sourceTree = "<group>"; };
+		630ED9DD1965F742000FE14C /* FBSAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FBSAppDelegate.m; sourceTree = "<group>"; };
+		630ED9E01965F742000FE14C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		630ED9E81965F742000FE14C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		630ED9EE1965F742000FE14C /* GraphnestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GraphnestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		630ED9EF1965F742000FE14C /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		630ED9F71965F742000FE14C /* GraphnestTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GraphnestTests-Info.plist"; sourceTree = "<group>"; };
+		630ED9F91965F742000FE14C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		630ED9FB1965F742000FE14C /* GraphnestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GraphnestTests.m; sourceTree = "<group>"; };
+		630EDA051965FCEF000FE14C /* FBSFirebaseLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBSFirebaseLoginViewController.h; sourceTree = "<group>"; };
+		630EDA061965FCEF000FE14C /* FBSFirebaseLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FBSFirebaseLoginViewController.m; sourceTree = "<group>"; };
+		630EDA081965FD02000FE14C /* FBSNestLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBSNestLoginViewController.h; sourceTree = "<group>"; };
+		630EDA091965FD02000FE14C /* FBSNestLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FBSNestLoginViewController.m; sourceTree = "<group>"; };
+		630EDA0B1965FD17000FE14C /* FBSGraphViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBSGraphViewController.h; sourceTree = "<group>"; };
+		630EDA0C1965FD17000FE14C /* FBSGraphViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FBSGraphViewController.m; sourceTree = "<group>"; };
+		630EDA0E1965FD26000FE14C /* FBSMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBSMainViewController.h; sourceTree = "<group>"; };
+		630EDA0F1965FD26000FE14C /* FBSMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FBSMainViewController.m; sourceTree = "<group>"; };
+		634B46181966054A00ECF659 /* FirebaseSimpleLogin.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseSimpleLogin.framework; sourceTree = "<group>"; };
+		634B461A1966056100ECF659 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		634B461C1966056700ECF659 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		F7290630D9DD42CCACC646AC /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		630ED9C71965F742000FE14C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				634B461D1966056700ECF659 /* Social.framework in Frameworks */,
+				634B461B1966056100ECF659 /* Accounts.framework in Frameworks */,
+				630ED9D01965F742000FE14C /* CoreGraphics.framework in Frameworks */,
+				630ED9D21965F742000FE14C /* UIKit.framework in Frameworks */,
+				630ED9CE1965F742000FE14C /* Foundation.framework in Frameworks */,
+				7A493F631C324B57AAEFCD02 /* libPods.a in Frameworks */,
+				634B46191966054A00ECF659 /* FirebaseSimpleLogin.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		630ED9EB1965F742000FE14C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				630ED9F01965F742000FE14C /* XCTest.framework in Frameworks */,
+				630ED9F21965F742000FE14C /* UIKit.framework in Frameworks */,
+				630ED9F11965F742000FE14C /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		630ED9C11965F742000FE14C = {
+			isa = PBXGroup;
+			children = (
+				630ED9D31965F742000FE14C /* Graphnest */,
+				630ED9F51965F742000FE14C /* GraphnestTests */,
+				630ED9CC1965F742000FE14C /* Frameworks */,
+				630ED9CB1965F742000FE14C /* Products */,
+				31C2B173C1CD487EB4F6FBD4 /* Pods.xcconfig */,
+			);
+			sourceTree = "<group>";
+		};
+		630ED9CB1965F742000FE14C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				630ED9CA1965F742000FE14C /* Graphnest.app */,
+				630ED9EE1965F742000FE14C /* GraphnestTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		630ED9CC1965F742000FE14C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				634B461C1966056700ECF659 /* Social.framework */,
+				634B461A1966056100ECF659 /* Accounts.framework */,
+				634B46181966054A00ECF659 /* FirebaseSimpleLogin.framework */,
+				630ED9CD1965F742000FE14C /* Foundation.framework */,
+				630ED9CF1965F742000FE14C /* CoreGraphics.framework */,
+				630ED9D11965F742000FE14C /* UIKit.framework */,
+				630ED9EF1965F742000FE14C /* XCTest.framework */,
+				F7290630D9DD42CCACC646AC /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		630ED9D31965F742000FE14C /* Graphnest */ = {
+			isa = PBXGroup;
+			children = (
+				630ED9DC1965F742000FE14C /* FBSAppDelegate.h */,
+				630ED9DD1965F742000FE14C /* FBSAppDelegate.m */,
+				630ED9DF1965F742000FE14C /* Main.storyboard */,
+				630ED9E81965F742000FE14C /* Images.xcassets */,
+				630ED9D41965F742000FE14C /* Supporting Files */,
+				630EDA051965FCEF000FE14C /* FBSFirebaseLoginViewController.h */,
+				630EDA061965FCEF000FE14C /* FBSFirebaseLoginViewController.m */,
+				630EDA081965FD02000FE14C /* FBSNestLoginViewController.h */,
+				630EDA091965FD02000FE14C /* FBSNestLoginViewController.m */,
+				630EDA0B1965FD17000FE14C /* FBSGraphViewController.h */,
+				630EDA0C1965FD17000FE14C /* FBSGraphViewController.m */,
+				630EDA0E1965FD26000FE14C /* FBSMainViewController.h */,
+				630EDA0F1965FD26000FE14C /* FBSMainViewController.m */,
+			);
+			path = Graphnest;
+			sourceTree = "<group>";
+		};
+		630ED9D41965F742000FE14C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				630ED9D51965F742000FE14C /* Graphnest-Info.plist */,
+				630ED9D61965F742000FE14C /* InfoPlist.strings */,
+				630ED9D91965F742000FE14C /* main.m */,
+				630ED9DB1965F742000FE14C /* Graphnest-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		630ED9F51965F742000FE14C /* GraphnestTests */ = {
+			isa = PBXGroup;
+			children = (
+				630ED9FB1965F742000FE14C /* GraphnestTests.m */,
+				630ED9F61965F742000FE14C /* Supporting Files */,
+			);
+			path = GraphnestTests;
+			sourceTree = "<group>";
+		};
+		630ED9F61965F742000FE14C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				630ED9F71965F742000FE14C /* GraphnestTests-Info.plist */,
+				630ED9F81965F742000FE14C /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		630ED9C91965F742000FE14C /* Graphnest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 630ED9FF1965F742000FE14C /* Build configuration list for PBXNativeTarget "Graphnest" */;
+			buildPhases = (
+				A3285D8C2D1F4FB897C5EE0F /* Check Pods Manifest.lock */,
+				630ED9C61965F742000FE14C /* Sources */,
+				630ED9C71965F742000FE14C /* Frameworks */,
+				630ED9C81965F742000FE14C /* Resources */,
+				BDF917DBB07A40D0B1E425D6 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Graphnest;
+			productName = Graphnest;
+			productReference = 630ED9CA1965F742000FE14C /* Graphnest.app */;
+			productType = "com.apple.product-type.application";
+		};
+		630ED9ED1965F742000FE14C /* GraphnestTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 630EDA021965F742000FE14C /* Build configuration list for PBXNativeTarget "GraphnestTests" */;
+			buildPhases = (
+				630ED9EA1965F742000FE14C /* Sources */,
+				630ED9EB1965F742000FE14C /* Frameworks */,
+				630ED9EC1965F742000FE14C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				630ED9F41965F742000FE14C /* PBXTargetDependency */,
+			);
+			name = GraphnestTests;
+			productName = GraphnestTests;
+			productReference = 630ED9EE1965F742000FE14C /* GraphnestTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		630ED9C21965F742000FE14C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = FBS;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = Firebase;
+				TargetAttributes = {
+					630ED9ED1965F742000FE14C = {
+						TestTargetID = 630ED9C91965F742000FE14C;
+					};
+				};
+			};
+			buildConfigurationList = 630ED9C51965F742000FE14C /* Build configuration list for PBXProject "Graphnest" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 630ED9C11965F742000FE14C;
+			productRefGroup = 630ED9CB1965F742000FE14C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				630ED9C91965F742000FE14C /* Graphnest */,
+				630ED9ED1965F742000FE14C /* GraphnestTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		630ED9C81965F742000FE14C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				630ED9E91965F742000FE14C /* Images.xcassets in Resources */,
+				630ED9D81965F742000FE14C /* InfoPlist.strings in Resources */,
+				630ED9E11965F742000FE14C /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		630ED9EC1965F742000FE14C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				630ED9FA1965F742000FE14C /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A3285D8C2D1F4FB897C5EE0F /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		BDF917DBB07A40D0B1E425D6 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		630ED9C61965F742000FE14C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				630EDA0D1965FD17000FE14C /* FBSGraphViewController.m in Sources */,
+				630EDA101965FD26000FE14C /* FBSMainViewController.m in Sources */,
+				630EDA0A1965FD02000FE14C /* FBSNestLoginViewController.m in Sources */,
+				630ED9DE1965F742000FE14C /* FBSAppDelegate.m in Sources */,
+				630ED9DA1965F742000FE14C /* main.m in Sources */,
+				630EDA071965FCEF000FE14C /* FBSFirebaseLoginViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		630ED9EA1965F742000FE14C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				630ED9FC1965F742000FE14C /* GraphnestTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		630ED9F41965F742000FE14C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 630ED9C91965F742000FE14C /* Graphnest */;
+			targetProxy = 630ED9F31965F742000FE14C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		630ED9D61965F742000FE14C /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				630ED9D71965F742000FE14C /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		630ED9DF1965F742000FE14C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				630ED9E01965F742000FE14C /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		630ED9F81965F742000FE14C /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				630ED9F91965F742000FE14C /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		630ED9FD1965F742000FE14C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		630ED9FE1965F742000FE14C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		630EDA001965F742000FE14C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 31C2B173C1CD487EB4F6FBD4 /* Pods.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Graphnest/Graphnest-Prefix.pch";
+				INFOPLIST_FILE = "Graphnest/Graphnest-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		630EDA011965F742000FE14C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 31C2B173C1CD487EB4F6FBD4 /* Pods.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Graphnest/Graphnest-Prefix.pch";
+				INFOPLIST_FILE = "Graphnest/Graphnest-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		630EDA031965F742000FE14C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Graphnest.app/Graphnest";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Graphnest/Graphnest-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "GraphnestTests/GraphnestTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		630EDA041965F742000FE14C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Graphnest.app/Graphnest";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Graphnest/Graphnest-Prefix.pch";
+				INFOPLIST_FILE = "GraphnestTests/GraphnestTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		630ED9C51965F742000FE14C /* Build configuration list for PBXProject "Graphnest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				630ED9FD1965F742000FE14C /* Debug */,
+				630ED9FE1965F742000FE14C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		630ED9FF1965F742000FE14C /* Build configuration list for PBXNativeTarget "Graphnest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				630EDA001965F742000FE14C /* Debug */,
+				630EDA011965F742000FE14C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		630EDA021965F742000FE14C /* Build configuration list for PBXNativeTarget "GraphnestTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				630EDA031965F742000FE14C /* Debug */,
+				630EDA041965F742000FE14C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 630ED9C21965F742000FE14C /* Project object */;
+}

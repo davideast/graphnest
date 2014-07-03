@@ -1,0 +1,13 @@
+PODS:
+  - BEMSimpleLineGraph (2.3)
+  - Firebase (1.1.9)
+
+DEPENDENCIES:
+  - BEMSimpleLineGraph (~> 2.3)
+  - Firebase (~> 1.1)
+
+SPEC CHECKSUMS:
+  BEMSimpleLineGraph: 5fb192c00c48f8123654e2b943b9227061f0dfd2
+  Firebase: 389b4d1f1a8f4b9ed53abec2aa62a3ceeafd7fcd
+
+COCOAPODS: 0.33.1
