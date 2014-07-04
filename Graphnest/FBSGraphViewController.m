@@ -37,9 +37,11 @@
     self.lineGraph.colorBottom  = [UIColor blueColor];
     self.lineGraph.colorXaxisLabel = [UIColor whiteColor];
     
+    // hard code user for now
     fb = [[Firebase alloc] initWithUrl:@"https://graphnest.firebaseio.com/devices/lAb3q6xxUjFY3DhVFAOOMAw6L2reeSWu/ambient_temperature_f"];
     
-    [fb authWithCredential:@"QjFSvWAukeTuzAHFB0w4TrlYrohywaHrUWD4ioEM" withCompletionBlock:^(NSError *error, id data) {
+    // total hack for now
+    [fb authWithCredential:@"<token_here>" withCompletionBlock:^(NSError *error, id data) {
         //
         NSMutableArray *tempPoints = [[NSMutableArray alloc] init];
         [fb observeEventType:FEventTypeChildAdded withBlock:^(FDataSnapshot *snapshot) {
