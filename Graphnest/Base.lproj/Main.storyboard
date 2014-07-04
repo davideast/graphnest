@@ -96,9 +96,11 @@
                         <outlet property="emailTextField" destination="XeY-HK-Chc" id="arR-zg-RUM"/>
                         <outlet property="passwordTextField" destination="0A8-6A-Kdv" id="327-Qn-LPe"/>
                         <segue destination="5lB-Ay-h8b" kind="push" identifier="LOGIN_INTO_NEST" id="hNd-CF-6m8"/>
+                        <segue destination="ejn-Ld-8d2" kind="unwind" identifier="UNWIND_TO_LOGIN" unwindAction="unwindToMainViewController:" id="gSg-e6-B6F"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6ef-dd-mm5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="ejn-Ld-8d2" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="400" y="66"/>
         </scene>
@@ -123,6 +125,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="h3y-vv-STE"/>
+                    <connections>
+                        <outlet property="oAuthWebView" destination="nRb-df-zFn" id="tl1-7M-nuW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jid-FZ-j6v" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -140,14 +145,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mYv-dr-7a3" customClass="BEMSimpleLineGraphView">
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mYv-dr-7a3" customClass="BEMSimpleLineGraphView">
                                 <rect key="frame" x="0.0" y="248" width="320" height="320"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="LFp-ks-hNE" firstAttribute="top" secondItem="mYv-dr-7a3" secondAttribute="bottom" id="taZ-w8-cbP"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="lineGraph" destination="mYv-dr-7a3" id="aIV-cY-uT5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PyF-sV-kww" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

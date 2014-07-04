@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import <FirebaseSimpleLogin/FirebaseSimpleLogin.h>
 @interface FBSMainViewController : UIViewController
-
+@property(nonatomic, retain) FAUser* faUser;
 @end

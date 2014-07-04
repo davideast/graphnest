@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <FirebaseSimpleLogin/FirebaseSimpleLogin.h>
+#import <BEMSimpleLineGraphView.h>
 
-@interface FBSGraphViewController : UIViewController
+@interface FBSGraphViewController : UIViewController <BEMSimpleLineGraphDelegate>
 
+@property (strong, nonatomic) IBOutlet BEMSimpleLineGraphView *lineGraph;
+@property(nonatomic, retain) FAUser* faUser;
 @end

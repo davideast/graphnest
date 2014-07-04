@@ -13,6 +13,7 @@
 @end
 
 @implementation FBSNestLoginViewController
+// https://home.nest.com/login/oauth2?client_id=d80c70f9-444d-4dd6-a457-8a77d142e6ba&state=<JWT>
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -26,6 +27,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    //NSURL *websiteUrl = [NSURL URLWithString:@"https://home.nest.com/login/oauth2?client_id=d80c70f9-444d-4dd6-a457-8a77d142e6ba&state=ASLJFASLFASF"];
+    //NSLog(@"%@", self.authToken);
     // Do any additional setup after loading the view.
 }
 

@@ -9,6 +9,8 @@
 #import "FBSFirebaseLoginViewController.h"
 #import <Firebase/Firebase.h>
 #import <FirebaseSimpleLogin/FirebaseSimpleLogin.h>
+#import "FBSNestLoginViewController.h"
+#import "FBSMainViewController.h"
 
 @interface FBSFirebaseLoginViewController ()
 
@@ -31,6 +33,7 @@
 {
     [super viewDidLoad];
     fb = [[Firebase alloc] initWithUrl: @"https://graphnest.firebaseio.com/"];
+    [self.emailTextField becomeFirstResponder];
     // Do any additional setup after loading the view.
 }
 
@@ -54,7 +57,6 @@
 - (IBAction)login:(UIButton *)sender {
 
     FirebaseSimpleLogin* authClient = [[FirebaseSimpleLogin alloc] initWithRef: fb];
-    
     [authClient loginWithEmail:self.emailTextField.text andPassword:self.passwordTextField.text
            withCompletionBlock:^(NSError* error, FAUser* user) {
                
@@ -63,12 +65,18 @@
                    NSLog(@"%@", error);
                } else {
                    // We are now logged in
-                   NSLog(@"Logged in");
-                   [self performSegueWithIdentifier:@"LOGIN_INTO_NEST" sender:nil];
+                   NSLog(@"%@", user.authToken);
+                   //[self performSegueWithIdentifier:@"LOGIN_INTO_NEST" sender:user.authToken];
+                   [self performSegueWithIdentifier:@"UNWIND_TO_LOGIN" sender:user];
                }
     }];
     
-    //self.emailTextField.text
-    
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+//    FBSNestLoginViewController *nestVC = (FBSNestLoginViewController*) segue.destinationViewController;
+//    nestVC.authToken = sender;
+    FBSMainViewController *graphVC = (FBSMainViewController*) segue.destinationViewController;
+    graphVC.faUser = sender;
 }
 @end

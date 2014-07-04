@@ -7,6 +7,7 @@
 //
 
 #import "FBSMainViewController.h"
+#import "FBSGraphViewController.h"
 
 @interface FBSMainViewController ()
 
@@ -31,10 +32,10 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    if (true) {
+    if (self.faUser == nil) {
         [self performSegueWithIdentifier:@"LOAD_LOGIN" sender:nil];
     } else {
-        [self performSegueWithIdentifier:@"LOAD_GRAPH" sender:nil];
+        [self performSegueWithIdentifier:@"LOAD_GRAPH" sender:self.faUser];
     }
 }
 
@@ -43,6 +44,21 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"LOAD_GRAPH"]) {
+        FBSGraphViewController *graphVC = (FBSGraphViewController*) segue.destinationViewController;
+        graphVC.faUser = sender;
+    }
+    //    FBSNestLoginViewController *nestVC = (FBSNestLoginViewController*) segue.destinationViewController;
+    //    nestVC.authToken = sender;
+    
+}
+
+- (IBAction)unwindToMainViewController:(UIStoryboardSegue *)segue {
+    
+}
+
 
 /*
 #pragma mark - Navigation

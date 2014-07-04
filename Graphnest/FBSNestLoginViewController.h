@@ -10,4 +10,7 @@
 
 @interface FBSNestLoginViewController : UIViewController
 
+@property (strong, nonatomic) IBOutlet UIWebView *oAuthWebView;
+@property (nonatomic, strong) NSString *authToken;
+
 @end

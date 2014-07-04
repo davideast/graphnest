@@ -7,12 +7,16 @@
 //
 
 #import "FBSGraphViewController.h"
+#import <Firebase/Firebase.h>
 
 @interface FBSGraphViewController ()
 
 @end
 
-@implementation FBSGraphViewController
+@implementation FBSGraphViewController {
+    Firebase *fb;
+    NSArray *points;
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -26,7 +30,51 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.lineGraph.delegate = self;
+    self.lineGraph.enableBezierCurve = YES;
+    self.lineGraph.enableTouchReport = YES;
+    self.lineGraph.colorLine = [UIColor redColor];
+    self.lineGraph.colorBottom  = [UIColor blueColor];
+    self.lineGraph.colorXaxisLabel = [UIColor whiteColor];
+    
+    fb = [[Firebase alloc] initWithUrl:@"https://graphnest.firebaseio.com/devices/lAb3q6xxUjFY3DhVFAOOMAw6L2reeSWu/ambient_temperature_f"];
+    
+    [fb authWithCredential:@"QjFSvWAukeTuzAHFB0w4TrlYrohywaHrUWD4ioEM" withCompletionBlock:^(NSError *error, id data) {
+        //
+        NSMutableArray *tempPoints = [[NSMutableArray alloc] init];
+        [fb observeEventType:FEventTypeChildAdded withBlock:^(FDataSnapshot *snapshot) {
+            //NSLog(@"%@ -> %@", snapshot.name, snapshot.value);
+            [tempPoints addObject:snapshot.value];
+            points = tempPoints;
+            [self.lineGraph reloadGraph];
+        }];
+        
+    } withCancelBlock:^(NSError *error) {
+        //
+    }];
+    
     // Do any additional setup after loading the view.
+
+}
+
+-(NSInteger)numberOfPointsInLineGraph:(BEMSimpleLineGraphView *)graph {
+    return points.count;
+}
+
+-(CGFloat)lineGraph:(BEMSimpleLineGraphView *)graph valueForPointAtIndex:(NSInteger)index {
+    NSLog(@"%@", [points objectAtIndex:index]);
+    return [[points objectAtIndex:index][@"value"] floatValue];
+}
+
+-(NSString *)lineGraph:(BEMSimpleLineGraphView *)graph labelOnXAxisForIndex:(NSInteger)index {
+    NSDate* date = [NSDate dateWithTimeIntervalSince1970: [[points objectAtIndex:index][@"timestamp"] longValue]];
+    NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
+    formatter.dateFormat = @"hh";
+    return [formatter stringFromDate:date];
+}
+
+-(NSInteger)numberOfGapsBetweenLabelsOnLineGraph:(BEMSimpleLineGraphView *)graph {
+    return 0;
 }
 
 - (void)didReceiveMemoryWarning
@@ -34,6 +82,13 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
+
+//- (IBAction)unwindToGraphViewController:(UIStoryboardSegue *)segue {
+//    
+//}
+
 
 /*
 #pragma mark - Navigation
