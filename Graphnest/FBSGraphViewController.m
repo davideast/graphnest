@@ -57,7 +57,7 @@
     // create ref for logged in user
     userDevicesRef = [[Firebase alloc] initWithUrl:userUrl];
     
-    [userDevicesRef authWithCredential:@"<my-token>" withCompletionBlock:^(NSError *error, id data) {
+    [userDevicesRef authWithCredential:@"QjFSvWAukeTuzAHFB0w4TrlYrohywaHrUWD4ioEM" withCompletionBlock:^(NSError *error, id data) {
         
         [userDevicesRef observeEventType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
             
@@ -82,9 +82,9 @@
 - (void)reloadChartForDeviceId:(NSString *)device {
     // total hack for now
     NSString *deviceUrl = [NSString stringWithFormat:@"%@/%@/%@", @"https://graphnest.firebaseio.com/devices", device, @"ambient_temperature_f"];
-    NSLog(@"%@", deviceUrl);
+    //NSLog(@"%@", deviceUrl);
     fb = [[Firebase alloc] initWithUrl:deviceUrl];
-    [fb authWithCredential:@"<my-token>" withCompletionBlock:^(NSError *error, id data) {
+    [fb authWithCredential:@"QjFSvWAukeTuzAHFB0w4TrlYrohywaHrUWD4ioEM" withCompletionBlock:^(NSError *error, id data) {
         
         // get the points for the graph
         NSMutableArray *tempPoints = [[NSMutableArray alloc] init];
@@ -112,7 +112,7 @@
 -(NSString *)lineGraph:(BEMSimpleLineGraphView *)graph labelOnXAxisForIndex:(NSInteger)index {
     NSDate* date = [NSDate dateWithTimeIntervalSince1970: [[points objectAtIndex:index][@"timestamp"] longValue]];
     NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
-    formatter.dateFormat = @"hh:mm a";
+    formatter.dateFormat = @"h a";
     return [formatter stringFromDate:date];
 }
 

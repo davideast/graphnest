@@ -7,6 +7,7 @@
 //
 
 #import "FBSDevicesViewController.h"
+#import "FBSGraphViewController.h"
 #import <Firebase/Firebase.h>
 
 @interface FBSDevicesViewController ()
@@ -17,7 +18,6 @@
 
 @implementation FBSDevicesViewController {
     Firebase *userDevicesRef;
-    NSArray *devices;
 }
 
 - (void) loadUserDevices:(NSString *)userId {
@@ -27,13 +27,12 @@
     // create ref for logged in user
     userDevicesRef = [[Firebase alloc] initWithUrl:userUrl];
     
-    [userDevicesRef authWithCredential:@"<my-token>" withCompletionBlock:^(NSError *error, id data) {
+    [userDevicesRef authWithCredential:@"QjFSvWAukeTuzAHFB0w4TrlYrohywaHrUWD4ioEM" withCompletionBlock:^(NSError *error, id data) {
         
         [userDevicesRef observeEventType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
             
-            devices = [snapshot.value[@"devices"] allKeys];
-            
-            self.devicesTables.delegate = self;
+            self.array = [snapshot.value[@"devices"] allKeys];
+            [self.devicesTables reloadData];
             
         } withCancelBlock:^(NSError *error) {
             
@@ -82,13 +81,22 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
     }
     
-    cell.textLabel.text = [devices objectAtIndex:indexPath.row];
+    cell.textLabel.text = [self.array objectAtIndex:indexPath.row];
     return cell;
 }
-
+/*
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"%@", [self.array objectAtIndex:indexPath.row]);
     //[self doSomethingWithRowAtIndexPath:indexPath];
+}
+*/
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath*)indexPath {
+    
+    //NSString *segueString = @"DETAIL_TO_GRAPH";
+    
+    //Perform a segue.
+    //[self performSegueWithIdentifier:segueString sender:[self.array objectAtIndex:indexPath.row]];
 }
 
 /*
