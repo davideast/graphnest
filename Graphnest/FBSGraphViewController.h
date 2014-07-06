@@ -10,8 +10,8 @@
 #import <FirebaseSimpleLogin/FirebaseSimpleLogin.h>
 #import <BEMSimpleLineGraphView.h>
 
-@interface FBSGraphViewController : UIViewController <BEMSimpleLineGraphDelegate>
-
+@interface FBSGraphViewController : UIViewController <BEMSimpleLineGraphDelegate, UIPickerViewDelegate>
+@property (strong, nonatomic) IBOutlet UIPickerView *devicePicker;
 @property (strong, nonatomic) IBOutlet BEMSimpleLineGraphView *lineGraph;
 @property(nonatomic, retain) FAUser* faUser;
 @end

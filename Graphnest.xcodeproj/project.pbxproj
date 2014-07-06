@@ -27,6 +27,8 @@
 		634B46191966054A00ECF659 /* FirebaseSimpleLogin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 634B46181966054A00ECF659 /* FirebaseSimpleLogin.framework */; };
 		634B461B1966056100ECF659 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 634B461A1966056100ECF659 /* Accounts.framework */; };
 		634B461D1966056700ECF659 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 634B461C1966056700ECF659 /* Social.framework */; };
+		634B46201968981B00ECF659 /* MyColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 634B461F1968981B00ECF659 /* MyColor.m */; };
+		634B462319689B0000ECF659 /* FBSHotColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 634B462219689B0000ECF659 /* FBSHotColor.m */; };
 		7A493F631C324B57AAEFCD02 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F7290630D9DD42CCACC646AC /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -70,6 +72,10 @@
 		634B46181966054A00ECF659 /* FirebaseSimpleLogin.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseSimpleLogin.framework; sourceTree = "<group>"; };
 		634B461A1966056100ECF659 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		634B461C1966056700ECF659 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		634B461E1968981B00ECF659 /* MyColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyColor.h; sourceTree = "<group>"; };
+		634B461F1968981B00ECF659 /* MyColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyColor.m; sourceTree = "<group>"; };
+		634B462119689B0000ECF659 /* FBSHotColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBSHotColor.h; sourceTree = "<group>"; };
+		634B462219689B0000ECF659 /* FBSHotColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FBSHotColor.m; sourceTree = "<group>"; };
 		F7290630D9DD42CCACC646AC /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -152,6 +158,10 @@
 				630EDA0C1965FD17000FE14C /* FBSGraphViewController.m */,
 				630EDA0E1965FD26000FE14C /* FBSMainViewController.h */,
 				630EDA0F1965FD26000FE14C /* FBSMainViewController.m */,
+				634B461E1968981B00ECF659 /* MyColor.h */,
+				634B461F1968981B00ECF659 /* MyColor.m */,
+				634B462119689B0000ECF659 /* FBSHotColor.h */,
+				634B462219689B0000ECF659 /* FBSHotColor.m */,
 			);
 			path = Graphnest;
 			sourceTree = "<group>";
@@ -322,6 +332,8 @@
 				630EDA101965FD26000FE14C /* FBSMainViewController.m in Sources */,
 				630EDA0A1965FD02000FE14C /* FBSNestLoginViewController.m in Sources */,
 				630ED9DE1965F742000FE14C /* FBSAppDelegate.m in Sources */,
+				634B46201968981B00ECF659 /* MyColor.m in Sources */,
+				634B462319689B0000ECF659 /* FBSHotColor.m in Sources */,
 				630ED9DA1965F742000FE14C /* main.m in Sources */,
 				630EDA071965FCEF000FE14C /* FBSFirebaseLoginViewController.m in Sources */,
 			);

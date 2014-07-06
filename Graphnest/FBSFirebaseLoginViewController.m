@@ -65,7 +65,7 @@
                    NSLog(@"%@", error);
                } else {
                    // We are now logged in
-                   NSLog(@"%@", user.authToken);
+                   //NSLog(@"%@", user.authToken);
                    //[self performSegueWithIdentifier:@"LOGIN_INTO_NEST" sender:user.authToken];
                    [self performSegueWithIdentifier:@"UNWIND_TO_LOGIN" sender:user];
                }
