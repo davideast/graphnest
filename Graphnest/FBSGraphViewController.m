@@ -38,19 +38,22 @@
     self.lineGraph.delegate = self;
     self.lineGraph.enableBezierCurve = YES;
     self.lineGraph.enableTouchReport = YES;
-    self.lineGraph.colorLine = [UIColor hotColor];
-    self.lineGraph.colorTop  = [UIColor MyColor];
-    self.lineGraph.colorBottom  = [UIColor MyColor];
-    self.lineGraph.colorXaxisLabel = [UIColor blackColor];
+    self.lineGraph.colorTop = [UIColor colorWithRed:0.0 green:140.0/255.0 blue:255.0/255.0 alpha:1.0];
+    self.lineGraph.colorBottom = [UIColor colorWithRed:0.0 green:140.0/255.0 blue:255.0/255.0 alpha:1.0]; // Leaving this not-set on iOS 7 will default to your window's tintColor
+    self.lineGraph.colorLine = [UIColor whiteColor];
+    self.lineGraph.colorXaxisLabel = [UIColor whiteColor];
+    self.lineGraph.widthLine = 4.0;
+    self.lineGraph.enablePopUpReport = YES;
     
-    //devices = [[NSArray alloc] initWithObjects:@"hallway", @"den", nil];
-    
-    
-    // hard code user for now
-   
+    // load up device to use
+    [self loadUserDevices:self.faUser.userId];
+
+}
+
+- (void) loadUserDevices:(NSString *)userId {
     // create url for logged in user
-    NSString *userUrl = [NSString stringWithFormat:@"%@/%@", @"https://graphnest.firebaseio.com/users", self.faUser.userId];
-   
+    NSString *userUrl = [NSString stringWithFormat:@"%@/%@", @"https://graphnest.firebaseio.com/users", userId];
+    
     // create ref for logged in user
     userDevicesRef = [[Firebase alloc] initWithUrl:userUrl];
     
@@ -60,8 +63,7 @@
             
             devices = [snapshot.value[@"devices"] allKeys];
             self.devicePicker.delegate = self;
-            //NSInteger first = devices.firstObject;
-            NSLog(@"%@", devices.firstObject);
+            
             [self reloadChartForDeviceId:devices.firstObject];
             
         } withCancelBlock:^(NSError *error) {
@@ -75,13 +77,9 @@
         NSLog(@"%@", error);
         
     }];
-    
-    
-    // Do any additional setup after loading the view.
-
 }
 
--(void)reloadChartForDeviceId:(NSString *)device {
+- (void)reloadChartForDeviceId:(NSString *)device {
     // total hack for now
     NSString *deviceUrl = [NSString stringWithFormat:@"%@/%@/%@", @"https://graphnest.firebaseio.com/devices", device, @"ambient_temperature_f"];
     NSLog(@"%@", deviceUrl);

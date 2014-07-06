@@ -13,5 +13,6 @@
 @interface FBSGraphViewController : UIViewController <BEMSimpleLineGraphDelegate, UIPickerViewDelegate>
 @property (strong, nonatomic) IBOutlet UIPickerView *devicePicker;
 @property (strong, nonatomic) IBOutlet BEMSimpleLineGraphView *lineGraph;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *devicesButton;
 @property(nonatomic, retain) FAUser* faUser;
 @end
