@@ -21,6 +21,8 @@
     Firebase *userDevicesRef;
 }
 
+@synthesize myDelegate;
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -34,7 +36,7 @@
     // create ref for logged in user
     userDevicesRef = [[Firebase alloc] initWithUrl:userUrl];
     
-    [userDevicesRef authWithCredential:@"<my-token>" withCompletionBlock:^(NSError *error, id data) {
+    [userDevicesRef authWithCredential:@"QjFSvWAukeTuzAHFB0w4TrlYrohywaHrUWD4ioEM" withCompletionBlock:^(NSError *error, id data) {
         
         // get user info
         [userDevicesRef observeEventType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
@@ -74,7 +76,7 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
     }
-    NSString *deviceName = [self.array objectAtIndex:indexPath.row][@"deviceName"];
+    NSString *deviceName = [self.array objectAtIndex:indexPath.row][@"name"];
     cell.textLabel.text = deviceName;
     return cell;
 }
@@ -84,8 +86,8 @@
     NSString *segueString = @"DETAIL_TO_GRAPH";
     
     // gather info and populate into a FBSDeviceUser
-    NSString *deviceId = [self.array objectAtIndex:indexPath.row][@"deviceId"];
-    NSString *deviceName = [self.array objectAtIndex:indexPath.row][@"deviceName"];
+    NSString *deviceId = [self.array objectAtIndex:indexPath.row][@"dId"];
+    NSString *deviceName = [self.array objectAtIndex:indexPath.row][@"name"];
     
     // init FBSDeviceUser
     FBSDeviceUser* deviceUser = [[FBSDeviceUser alloc] init];
@@ -94,9 +96,18 @@
     deviceUser.device.deviceName = deviceName;
     deviceUser.device.deviceId = deviceId;
     
+    if([self.myDelegate respondsToSelector:@selector(secondViewControllerDismissed:)])
+    {
+        [self.myDelegate secondViewControllerDismissed:deviceUser];
+    }
+    
+    FBSGraphViewController *graphVC = (FBSGraphViewController*) self.parentViewController;
+    graphVC.deviceUser = deviceUser;
+    graphVC.faUser = deviceUser.faUser;
+    
     //Perform a segue sending the FBSDeviceUser
-    [self performSegueWithIdentifier:segueString sender:deviceUser];
-
+    //[self performSegueWithIdentifier:segueString sender:deviceUser];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark - Navigation
@@ -112,9 +123,6 @@
     
     graphVC.faUser = deviceUser.faUser;
     graphVC.deviceUser = deviceUser;
-    
-    NSLog(@"%@ -> %@", graphVC.faUser, @" userId");
-    
 }
 
 

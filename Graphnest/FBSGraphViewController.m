@@ -36,6 +36,14 @@
     [self loadChart];
 }
 
+- (void)secondViewControllerDismissed:(FBSDeviceUser *)deviceUser
+{
+    NSLog(@"%@", @"Here");
+    self.deviceUser = deviceUser;
+    self.faUser = deviceUser.faUser;
+    [self loadChart];
+}
+
 - (void) loadChart {
     // load up device to use
     // if there is a device id then load that device
@@ -68,11 +76,10 @@
     userDevicesRef = [[Firebase alloc] initWithUrl:userUrl];
     
     // total hack for now
-    [userDevicesRef authWithCredential:@"<my-token>" withCompletionBlock:^(NSError *error, id data) {
+    [userDevicesRef authWithCredential:@"QjFSvWAukeTuzAHFB0w4TrlYrohywaHrUWD4ioEM" withCompletionBlock:^(NSError *error, id data) {
         
         [userDevicesRef observeEventType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
             devices = [snapshot.value[@"devices"] allKeys];
-            NSLog(@"%@", devices.firstObject);
             [self reloadChartForDeviceId:devices.firstObject];
             
         } withCancelBlock:^(NSError *error) {
@@ -91,7 +98,7 @@
     fb = [[Firebase alloc] initWithUrl:deviceUrl];
     
     // total hack for now
-    [fb authWithCredential:@"<my-token>" withCompletionBlock:^(NSError *error, id data) {
+    [fb authWithCredential:@"QjFSvWAukeTuzAHFB0w4TrlYrohywaHrUWD4ioEM" withCompletionBlock:^(NSError *error, id data) {
         
         // get the points for the graph
         NSMutableArray *tempPoints = [[NSMutableArray alloc] init];
@@ -107,6 +114,19 @@
     }];
 }
 
+-(NSString *)formatDate:(NSString *)format atIndex:(int) index{
+    
+    NSDate *date = [NSDate dateWithTimeIntervalSince1970: [[points objectAtIndex:index][@"timestamp"] intValue]];
+    //NSLog(@"Date -> %i", [[points objectAtIndex:index][@"timestamp"] intValue ]);
+    
+    //NSDateComponents *weekdayComponents = [[NSCalendar currentCalendar] components:NSWeekdayCalendarUnit fromDate:date];
+    //int weekday = [weekdayComponents weekday];
+    //NSDate* date = [NSDate dateWithTimeIntervalSince1970: [[points objectAtIndex:index][@"timestamp"] longValue]];
+    NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
+    formatter.dateFormat = format;
+    return [formatter stringFromDate:date];
+}
+
 #pragma mark - Line Graph
 -(NSInteger)numberOfPointsInLineGraph:(BEMSimpleLineGraphView *)graph {
     return points.count;
@@ -117,14 +137,16 @@
 }
 
 -(NSString *)lineGraph:(BEMSimpleLineGraphView *)graph labelOnXAxisForIndex:(NSInteger)index {
-    NSDate* date = [NSDate dateWithTimeIntervalSince1970: [[points objectAtIndex:index][@"timestamp"] longValue]];
-    NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
-    formatter.dateFormat = @"h a";
-    return [formatter stringFromDate:date];
+    return [self formatDate:@"h a" atIndex:index];
 }
 
 -(NSInteger)numberOfGapsBetweenLabelsOnLineGraph:(BEMSimpleLineGraphView *)graph {
     return 10;
+}
+
+- (void)lineGraph:(BEMSimpleLineGraphView *)graph didTouchGraphWithClosestIndex:(NSInteger)index {
+    self.valueLabel.text = [NSString stringWithFormat:@"%@", [points objectAtIndex:index][@"value"]];
+    self.dateLabel.text = [self formatDate:@"MMM Do" atIndex:index];
 }
 
 #pragma mark - Navigation
@@ -136,6 +158,7 @@
     // Pass the selected object to the new view controller.
     FBSDevicesViewController *deviceVC = (FBSDevicesViewController*) segue.destinationViewController;
     deviceVC.faUser = self.faUser;
+    deviceVC.myDelegate = self;
 }
 
 - (void)didReceiveMemoryWarning

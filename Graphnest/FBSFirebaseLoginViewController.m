@@ -62,10 +62,9 @@
                
                if (error != nil) {
                    // There was an error logging in to this account
-                   NSLog(@"%@", error);
+                   
                } else {
                    // We are now logged in
-                   //NSLog(@"%@", user.authToken);
                    //[self performSegueWithIdentifier:@"LOGIN_INTO_NEST" sender:user.authToken];
                    [self performSegueWithIdentifier:@"UNWIND_TO_LOGIN" sender:user];
                }

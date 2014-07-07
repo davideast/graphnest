@@ -17,11 +17,12 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eq9-QA-ai8" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1" y="64"/>
+            <point key="canvasLocation" x="-329" y="468"/>
         </scene>
         <!--Main View Controller-->
         <scene sceneID="Fdq-Ke-Od1">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="g0V-eJ-xN4" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="HGa-M8-w8r" customClass="FBSMainViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="6am-N6-qe3"/>
@@ -37,9 +38,8 @@
                         <segue destination="w14-AU-W4s" kind="modal" identifier="LOAD_GRAPH" id="ohw-uX-L4w"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="g0V-eJ-xN4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-887" y="258"/>
+            <point key="canvasLocation" x="-923" y="662"/>
         </scene>
         <!--Firebase Login View Controller-->
         <scene sceneID="Tp2-Bl-DWe">
@@ -79,7 +79,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f6N-8T-XuS">
-                                <rect key="frame" x="177" y="230" width="38" height="30"/>
+                                <rect key="frame" x="262" y="227" width="38" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Login">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -87,6 +87,13 @@
                                 <connections>
                                     <action selector="login:" destination="gkt-c1-jjH" eventType="touchUpInside" id="gVZ-Q5-MMv"/>
                                 </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e9w-Mt-kFT">
+                                <rect key="frame" x="174" y="269" width="126" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Create an account">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -102,7 +109,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6ef-dd-mm5" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="ejn-Ld-8d2" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="540" y="64"/>
+            <point key="canvasLocation" x="208" y="468"/>
         </scene>
         <!--Nest Login View Controller-->
         <scene sceneID="MN6-Ed-bxf">
@@ -131,11 +138,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jid-FZ-j6v" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1054" y="64"/>
+            <point key="canvasLocation" x="730" y="468"/>
         </scene>
         <!--Graph View Controller-->
         <scene sceneID="NlH-25-WiF">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PyF-sV-kww" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="w14-AU-W4s" customClass="FBSGraphViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="vgA-6k-1p7"/>
@@ -158,26 +166,50 @@
                                     <navigationItem title="Temperature" id="K3h-8M-x0T">
                                         <barButtonItem key="leftBarButtonItem" title="Devices" id="SLu-Xc-Geq">
                                             <connections>
-                                                <segue destination="vO5-EL-KRj" kind="modal" identifier="BUTTON_DEVICES" modalTransitionStyle="coverVertical" id="wKR-Q5-iKK"/>
+                                                <segue destination="vO5-EL-KRj" kind="modal" id="cJn-ME-NGW"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="ts1-a9-DHz">
+                                <rect key="frame" x="18" y="518" width="284" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </slider>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2B6-g8-mqG">
+                                <rect key="frame" x="0.0" y="334" width="320" height="52"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Monday, July 7th" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="emi-fI-lEU">
+                                        <rect key="frame" x="91" y="6" width="131" height="25"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="80" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yM1-9e-VQb">
+                                        <rect key="frame" x="0.0" y="6" width="83" height="39"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.95294117647058818" green="0.95294117647058818" blue="0.95294117647058818" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="Rev-TA-ako"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="dateLabel" destination="emi-fI-lEU" id="8AU-7d-WzI"/>
                         <outlet property="devicesButton" destination="SLu-Xc-Geq" id="wO8-LF-iix"/>
                         <outlet property="lineGraph" destination="mYv-dr-7a3" id="aIV-cY-uT5"/>
+                        <outlet property="valueLabel" destination="yM1-9e-VQb" id="PUh-lj-P3X"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="PyF-sV-kww" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-176" y="816"/>
+            <point key="canvasLocation" x="-226" y="1230"/>
         </scene>
         <!--Devices View Controller-->
         <scene sceneID="N4d-x6-fII">
@@ -206,12 +238,11 @@
                     <navigationItem key="navigationItem" id="NhN-bV-tHw"/>
                     <connections>
                         <outlet property="devicesTables" destination="FHr-2V-nrB" id="E8T-5k-Dre"/>
-                        <segue destination="w14-AU-W4s" kind="modal" identifier="DETAIL_TO_GRAPH" modalTransitionStyle="coverVertical" id="oTm-FA-tG3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="58h-5S-eRD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="389" y="832"/>
+            <point key="canvasLocation" x="317" y="1230"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
@@ -219,7 +250,4 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
-    <inferredMetricsTieBreakers>
-        <segue reference="oTm-FA-tG3"/>
-    </inferredMetricsTieBreakers>
 </document>

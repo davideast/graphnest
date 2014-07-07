@@ -34,6 +34,7 @@
 {
     if (self.faUser == nil) {
         [self performSegueWithIdentifier:@"LOAD_LOGIN" sender:nil];
+        //[self login];
     } else {
         [self performSegueWithIdentifier:@"LOAD_GRAPH" sender:self.faUser];
     }
@@ -58,7 +59,6 @@
 - (IBAction)unwindToMainViewController:(UIStoryboardSegue *)segue {
     
 }
-
 
 /*
 #pragma mark - Navigation

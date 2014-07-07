@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import <FirebaseSimpleLogin/FirebaseSimpleLogin.h>
-@interface FBSMainViewController : UIViewController
+@interface FBSMainViewController : UIViewController <UIAlertViewDelegate>
 @property(nonatomic, retain) FAUser* faUser;
 @end
