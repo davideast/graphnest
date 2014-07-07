@@ -7,9 +7,14 @@
 //
 
 #import "FBSGraphViewController.h"
+#import "FBSDevicesViewController.h"
 #import <Firebase/Firebase.h>
 #import "MyColor.h"
 #import "FBSHotColor.h"
+
+#define kGraphnestNS @"https://graphnest.firebaseio.com/"
+#define kGraphnestUsersNS @"https://graphnest.firebaseio.com/users"
+#define kGraphnestDevicesNS @"https://graphnest.firebaseio.com/devices"
 
 @interface FBSGraphViewController ()
 
@@ -18,23 +23,31 @@
 @implementation FBSGraphViewController {
     Firebase *fb;
     Firebase *userDevicesRef;
+    Firebase *deviceRef;
     NSArray *points;
     NSArray *devices;
-}
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [self setGraphOptions];
+    [self loadChart];
+}
 
+- (void) loadChart {
+    // load up device to use
+    // if there is a device id then load that device
+    // else then find the users devices and use the first one
+    if (self.deviceUser && self.deviceUser.device) {
+        [self reloadChartForDeviceId:self.deviceUser.device.deviceId];
+    } else {
+        [self loadUserDevices:self.faUser.userId];
+    }
+}
+
+- (void) setGraphOptions {
     self.lineGraph.delegate = self;
     self.lineGraph.enableBezierCurve = YES;
     self.lineGraph.enableTouchReport = YES;
@@ -44,68 +57,62 @@
     self.lineGraph.colorXaxisLabel = [UIColor whiteColor];
     self.lineGraph.widthLine = 4.0;
     self.lineGraph.enablePopUpReport = YES;
-    
-    // load up device to use
-    [self loadUserDevices:self.faUser.userId];
-
 }
+
 
 - (void) loadUserDevices:(NSString *)userId {
     // create url for logged in user
-    NSString *userUrl = [NSString stringWithFormat:@"%@/%@", @"https://graphnest.firebaseio.com/users", userId];
+    NSString *userUrl = [NSString stringWithFormat:@"%@/%@", kGraphnestUsersNS, userId];
     
     // create ref for logged in user
     userDevicesRef = [[Firebase alloc] initWithUrl:userUrl];
     
-    [userDevicesRef authWithCredential:@"QjFSvWAukeTuzAHFB0w4TrlYrohywaHrUWD4ioEM" withCompletionBlock:^(NSError *error, id data) {
+    // total hack for now
+    [userDevicesRef authWithCredential:@"<my-token>" withCompletionBlock:^(NSError *error, id data) {
         
         [userDevicesRef observeEventType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
-            
             devices = [snapshot.value[@"devices"] allKeys];
-            self.devicePicker.delegate = self;
-            
+            NSLog(@"%@", devices.firstObject);
             [self reloadChartForDeviceId:devices.firstObject];
             
         } withCancelBlock:^(NSError *error) {
             
-            NSLog(@"%@", error);
             
         }];
         
     } withCancelBlock:^(NSError *error) {
         
-        NSLog(@"%@", error);
         
     }];
 }
 
 - (void)reloadChartForDeviceId:(NSString *)device {
-    // total hack for now
-    NSString *deviceUrl = [NSString stringWithFormat:@"%@/%@/%@", @"https://graphnest.firebaseio.com/devices", device, @"ambient_temperature_f"];
-    //NSLog(@"%@", deviceUrl);
+    NSString *deviceUrl = [NSString stringWithFormat:@"%@/%@/%@", kGraphnestDevicesNS, device, @"ambient_temperature_f"];
     fb = [[Firebase alloc] initWithUrl:deviceUrl];
-    [fb authWithCredential:@"QjFSvWAukeTuzAHFB0w4TrlYrohywaHrUWD4ioEM" withCompletionBlock:^(NSError *error, id data) {
+    
+    // total hack for now
+    [fb authWithCredential:@"<my-token>" withCompletionBlock:^(NSError *error, id data) {
         
         // get the points for the graph
         NSMutableArray *tempPoints = [[NSMutableArray alloc] init];
         [fb observeEventType:FEventTypeChildAdded withBlock:^(FDataSnapshot *snapshot) {
-            //NSLog(@"%@ -> %@", snapshot.name, snapshot.value);
             [tempPoints addObject:snapshot.value];
             points = tempPoints;
             [self.lineGraph reloadGraph];
         }];
         
     } withCancelBlock:^(NSError *error) {
-        NSLog(@"%@", error);
+        
+        
     }];
 }
 
+#pragma mark - Line Graph
 -(NSInteger)numberOfPointsInLineGraph:(BEMSimpleLineGraphView *)graph {
     return points.count;
 }
 
 -(CGFloat)lineGraph:(BEMSimpleLineGraphView *)graph valueForPointAtIndex:(NSInteger)index {
-    //NSLog(@"%@", [points objectAtIndex:index]);
     return [[points objectAtIndex:index][@"value"] floatValue];
 }
 
@@ -120,43 +127,6 @@
     return 10;
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-- (void)pickerView:(UIPickerView *)pickerView didSelectRow: (NSInteger)row inComponent:(NSInteger)component {
-    // Handle the selection by setting the chart to the new device
-    //NSLog(@"%@", devices[row]);
-    [self reloadChartForDeviceId:devices[row]];
-}
-
-// tell the picker how many rows are available for a given component
-- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
-    return [devices count];
-}
-
-// tell the picker how many components it will have
-- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
-    return 1;
-}
-
-// tell the picker the title for a given component
-- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
-    NSString *title;
-    
-    title = [@"" stringByAppendingFormat:@"Row %d",row];
-    
-    return [devices objectAtIndex:row];
-}
-
-//- (IBAction)unwindToGraphViewController:(UIStoryboardSegue *)segue {
-//    
-//}
-
-
-/*
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -164,7 +134,14 @@
 {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    FBSDevicesViewController *deviceVC = (FBSDevicesViewController*) segue.destinationViewController;
+    deviceVC.faUser = self.faUser;
 }
-*/
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
 
 @end

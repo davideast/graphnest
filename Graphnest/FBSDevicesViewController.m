@@ -8,6 +8,7 @@
 
 #import "FBSDevicesViewController.h"
 #import "FBSGraphViewController.h"
+#import "FBSDeviceUser.h"
 #import <Firebase/Firebase.h>
 
 @interface FBSDevicesViewController ()
@@ -20,6 +21,12 @@
     Firebase *userDevicesRef;
 }
 
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    [self loadUserDevices:@"2"];
+}
+
 - (void) loadUserDevices:(NSString *)userId {
     // create url for logged in user
     NSString *userUrl = [NSString stringWithFormat:@"%@/%@", @"https://graphnest.firebaseio.com/users", userId];
@@ -27,39 +34,26 @@
     // create ref for logged in user
     userDevicesRef = [[Firebase alloc] initWithUrl:userUrl];
     
-    [userDevicesRef authWithCredential:@"QjFSvWAukeTuzAHFB0w4TrlYrohywaHrUWD4ioEM" withCompletionBlock:^(NSError *error, id data) {
+    [userDevicesRef authWithCredential:@"<my-token>" withCompletionBlock:^(NSError *error, id data) {
         
+        // get user info
         [userDevicesRef observeEventType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
-            
-            self.array = [snapshot.value[@"devices"] allKeys];
+            NSArray* devices = [snapshot.value[@"devices"] allValues];
+            // TODO: Init array of FBSDeviceUser
+            self.array = devices;
             [self.devicesTables reloadData];
             
         } withCancelBlock:^(NSError *error) {
             
-            NSLog(@"%@", error);
+
             
         }];
         
     } withCancelBlock:^(NSError *error) {
         
-        NSLog(@"%@", error);
+
         
     }];
-}
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    [self loadUserDevices:@"2"];
 }
 
 - (void)didReceiveMemoryWarning
@@ -80,34 +74,48 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
     }
-    
-    cell.textLabel.text = [self.array objectAtIndex:indexPath.row];
+    NSString *deviceName = [self.array objectAtIndex:indexPath.row][@"deviceName"];
+    cell.textLabel.text = deviceName;
     return cell;
 }
-/*
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"%@", [self.array objectAtIndex:indexPath.row]);
-    //[self doSomethingWithRowAtIndexPath:indexPath];
-}
-*/
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath*)indexPath {
     
-    //NSString *segueString = @"DETAIL_TO_GRAPH";
+    NSString *segueString = @"DETAIL_TO_GRAPH";
     
-    //Perform a segue.
-    //[self performSegueWithIdentifier:segueString sender:[self.array objectAtIndex:indexPath.row]];
+    // gather info and populate into a FBSDeviceUser
+    NSString *deviceId = [self.array objectAtIndex:indexPath.row][@"deviceId"];
+    NSString *deviceName = [self.array objectAtIndex:indexPath.row][@"deviceName"];
+    
+    // init FBSDeviceUser
+    FBSDeviceUser* deviceUser = [[FBSDeviceUser alloc] init];
+    deviceUser.faUser = self.faUser;
+    deviceUser.device = [[FBSDevice alloc] init];
+    deviceUser.device.deviceName = deviceName;
+    deviceUser.device.deviceId = deviceId;
+    
+    //Perform a segue sending the FBSDeviceUser
+    [self performSegueWithIdentifier:segueString sender:deviceUser];
+
 }
 
-/*
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    FBSDeviceUser *deviceUser = (FBSDeviceUser *)sender;
+    
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    FBSGraphViewController *graphVC = (FBSGraphViewController*) segue.destinationViewController;
+    
+    graphVC.faUser = deviceUser.faUser;
+    graphVC.deviceUser = deviceUser;
+    
+    NSLog(@"%@ -> %@", graphVC.faUser, @" userId");
+    
 }
-*/
+
 
 @end

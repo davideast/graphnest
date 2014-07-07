@@ -30,6 +30,8 @@
 		634B46201968981B00ECF659 /* MyColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 634B461F1968981B00ECF659 /* MyColor.m */; };
 		634B462319689B0000ECF659 /* FBSHotColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 634B462219689B0000ECF659 /* FBSHotColor.m */; };
 		634B462F19698C8500ECF659 /* FBSDevicesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 634B462E19698C8500ECF659 /* FBSDevicesViewController.m */; };
+		634B4632196A558B00ECF659 /* FBSDeviceUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 634B4631196A558B00ECF659 /* FBSDeviceUser.m */; };
+		634B4638196A5D8000ECF659 /* FBSDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 634B4637196A5D8000ECF659 /* FBSDevice.m */; };
 		7A493F631C324B57AAEFCD02 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F7290630D9DD42CCACC646AC /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -79,6 +81,10 @@
 		634B462219689B0000ECF659 /* FBSHotColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FBSHotColor.m; sourceTree = "<group>"; };
 		634B462D19698C8500ECF659 /* FBSDevicesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBSDevicesViewController.h; sourceTree = "<group>"; };
 		634B462E19698C8500ECF659 /* FBSDevicesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FBSDevicesViewController.m; sourceTree = "<group>"; };
+		634B4630196A558B00ECF659 /* FBSDeviceUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBSDeviceUser.h; sourceTree = "<group>"; };
+		634B4631196A558B00ECF659 /* FBSDeviceUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FBSDeviceUser.m; sourceTree = "<group>"; };
+		634B4636196A5D8000ECF659 /* FBSDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBSDevice.h; sourceTree = "<group>"; };
+		634B4637196A5D8000ECF659 /* FBSDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FBSDevice.m; sourceTree = "<group>"; };
 		F7290630D9DD42CCACC646AC /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -148,25 +154,14 @@
 		630ED9D31965F742000FE14C /* Graphnest */ = {
 			isa = PBXGroup;
 			children = (
+				634B4635196A5D5A00ECF659 /* Colors */,
+				634B4634196A5CF300ECF659 /* Models */,
+				634B4633196A5CDC00ECF659 /* Controllers */,
 				630ED9DC1965F742000FE14C /* FBSAppDelegate.h */,
 				630ED9DD1965F742000FE14C /* FBSAppDelegate.m */,
 				630ED9DF1965F742000FE14C /* Main.storyboard */,
 				630ED9E81965F742000FE14C /* Images.xcassets */,
 				630ED9D41965F742000FE14C /* Supporting Files */,
-				630EDA051965FCEF000FE14C /* FBSFirebaseLoginViewController.h */,
-				630EDA061965FCEF000FE14C /* FBSFirebaseLoginViewController.m */,
-				630EDA081965FD02000FE14C /* FBSNestLoginViewController.h */,
-				630EDA091965FD02000FE14C /* FBSNestLoginViewController.m */,
-				630EDA0B1965FD17000FE14C /* FBSGraphViewController.h */,
-				630EDA0C1965FD17000FE14C /* FBSGraphViewController.m */,
-				630EDA0E1965FD26000FE14C /* FBSMainViewController.h */,
-				630EDA0F1965FD26000FE14C /* FBSMainViewController.m */,
-				634B461E1968981B00ECF659 /* MyColor.h */,
-				634B461F1968981B00ECF659 /* MyColor.m */,
-				634B462119689B0000ECF659 /* FBSHotColor.h */,
-				634B462219689B0000ECF659 /* FBSHotColor.m */,
-				634B462D19698C8500ECF659 /* FBSDevicesViewController.h */,
-				634B462E19698C8500ECF659 /* FBSDevicesViewController.m */,
 			);
 			path = Graphnest;
 			sourceTree = "<group>";
@@ -198,6 +193,45 @@
 				630ED9F81965F742000FE14C /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		634B4633196A5CDC00ECF659 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				634B462D19698C8500ECF659 /* FBSDevicesViewController.h */,
+				634B462E19698C8500ECF659 /* FBSDevicesViewController.m */,
+				630EDA051965FCEF000FE14C /* FBSFirebaseLoginViewController.h */,
+				630EDA061965FCEF000FE14C /* FBSFirebaseLoginViewController.m */,
+				630EDA081965FD02000FE14C /* FBSNestLoginViewController.h */,
+				630EDA091965FD02000FE14C /* FBSNestLoginViewController.m */,
+				630EDA0B1965FD17000FE14C /* FBSGraphViewController.h */,
+				630EDA0C1965FD17000FE14C /* FBSGraphViewController.m */,
+				630EDA0E1965FD26000FE14C /* FBSMainViewController.h */,
+				630EDA0F1965FD26000FE14C /* FBSMainViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		634B4634196A5CF300ECF659 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				634B4630196A558B00ECF659 /* FBSDeviceUser.h */,
+				634B4631196A558B00ECF659 /* FBSDeviceUser.m */,
+				634B4636196A5D8000ECF659 /* FBSDevice.h */,
+				634B4637196A5D8000ECF659 /* FBSDevice.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		634B4635196A5D5A00ECF659 /* Colors */ = {
+			isa = PBXGroup;
+			children = (
+				634B461E1968981B00ECF659 /* MyColor.h */,
+				634B461F1968981B00ECF659 /* MyColor.m */,
+				634B462119689B0000ECF659 /* FBSHotColor.h */,
+				634B462219689B0000ECF659 /* FBSHotColor.m */,
+			);
+			name = Colors;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -340,7 +374,9 @@
 				634B462F19698C8500ECF659 /* FBSDevicesViewController.m in Sources */,
 				634B46201968981B00ECF659 /* MyColor.m in Sources */,
 				634B462319689B0000ECF659 /* FBSHotColor.m in Sources */,
+				634B4638196A5D8000ECF659 /* FBSDevice.m in Sources */,
 				630ED9DA1965F742000FE14C /* main.m in Sources */,
+				634B4632196A558B00ECF659 /* FBSDeviceUser.m in Sources */,
 				630EDA071965FCEF000FE14C /* FBSFirebaseLoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

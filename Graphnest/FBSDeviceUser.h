@@ -1,5 +1,5 @@
 //
-//  FBSDevicesViewController.h
+//  FBSDeviceUser.h
 //  Graphnest
 //
 //  Created by David on 7/6/14.
@@ -8,8 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import <FirebaseSimpleLogin/FirebaseSimpleLogin.h>
+#import "FBSDevice.h"
 
-@interface FBSDevicesViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
-@property (strong, nonatomic) IBOutlet UITableView *devicesTables;
+@interface FBSDeviceUser : NSObject
+
 @property(nonatomic, retain) FAUser* faUser;
+@property(nonatomic, retain) FBSDevice* device;
+
 @end
