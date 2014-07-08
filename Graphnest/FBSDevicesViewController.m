@@ -82,9 +82,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath*)indexPath {
-    
-    NSString *segueString = @"DETAIL_TO_GRAPH";
-    
+
     // gather info and populate into a FBSDeviceUser
     NSString *deviceId = [self.array objectAtIndex:indexPath.row][@"dId"];
     NSString *deviceName = [self.array objectAtIndex:indexPath.row][@"name"];
