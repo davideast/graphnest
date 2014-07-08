@@ -36,6 +36,10 @@
     [self loadChart];
 }
 
+- (IBAction)valueChanged:(UISlider *)sender {
+    NSLog(@"%f", self.graphSlider.value);
+}
+
 - (void)secondViewControllerDismissed:(FBSDeviceUser *)deviceUser
 {
     NSLog(@"%@", @"Here");
@@ -62,9 +66,10 @@
     self.lineGraph.colorTop = [UIColor colorWithRed:0.0 green:140.0/255.0 blue:255.0/255.0 alpha:1.0];
     self.lineGraph.colorBottom = [UIColor colorWithRed:0.0 green:140.0/255.0 blue:255.0/255.0 alpha:1.0]; // Leaving this not-set on iOS 7 will default to your window's tintColor
     self.lineGraph.colorLine = [UIColor whiteColor];
-    self.lineGraph.colorXaxisLabel = [UIColor whiteColor];
+    //self.lineGraph.colorXaxisLabel = [UIColor whiteColor];
     self.lineGraph.widthLine = 4.0;
     self.lineGraph.enablePopUpReport = YES;
+    self.statsView.layer.borderColor = [UIColor colorWithRed:226/255.0 green:226.0/255.0 blue:226.0/255.0 alpha:1.0].CGColor;
 }
 
 
@@ -115,13 +120,8 @@
 }
 
 -(NSString *)formatDate:(NSString *)format atIndex:(int) index{
-    
-    NSDate *date = [NSDate dateWithTimeIntervalSince1970: [[points objectAtIndex:index][@"timestamp"] intValue]];
-    //NSLog(@"Date -> %i", [[points objectAtIndex:index][@"timestamp"] intValue ]);
-    
-    //NSDateComponents *weekdayComponents = [[NSCalendar currentCalendar] components:NSWeekdayCalendarUnit fromDate:date];
-    //int weekday = [weekdayComponents weekday];
-    //NSDate* date = [NSDate dateWithTimeIntervalSince1970: [[points objectAtIndex:index][@"timestamp"] longValue]];
+    NSNumber *testTime = [points objectAtIndex:index][@"timestamp"];
+    NSDate *date = [NSDate dateWithTimeIntervalSince1970: testTime.doubleValue / 1000];
     NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
     formatter.dateFormat = format;
     return [formatter stringFromDate:date];
@@ -136,9 +136,10 @@
     return [[points objectAtIndex:index][@"value"] floatValue];
 }
 
+/*
 -(NSString *)lineGraph:(BEMSimpleLineGraphView *)graph labelOnXAxisForIndex:(NSInteger)index {
     return [self formatDate:@"h a" atIndex:index];
-}
+}*/
 
 -(NSInteger)numberOfGapsBetweenLabelsOnLineGraph:(BEMSimpleLineGraphView *)graph {
     return 10;
@@ -146,7 +147,7 @@
 
 - (void)lineGraph:(BEMSimpleLineGraphView *)graph didTouchGraphWithClosestIndex:(NSInteger)index {
     self.valueLabel.text = [NSString stringWithFormat:@"%@", [points objectAtIndex:index][@"value"]];
-    self.dateLabel.text = [self formatDate:@"MMM Do" atIndex:index];
+    self.dateLabel.text = [self formatDate:@"EEEE, MMMM dd" atIndex:index];
 }
 
 #pragma mark - Navigation
