@@ -25,6 +25,7 @@
     Firebase *userDevicesRef;
     Firebase *deviceRef;
     NSArray *points;
+    NSArray *weatherPoints;
     NSArray *devices;
 }
 
@@ -32,7 +33,7 @@
 {
     [super viewDidLoad];
     
-    [self setGraphOptions];
+    //[self setGraphOptions];
     [self loadChart];
 }
 
@@ -48,17 +49,32 @@
     [self loadChart];
 }
 
+- (void) getReportData:(NSArray *)arry {
+    NSString* dataValue = arry[0];
+    NSString* dateValue = arry[1];
+    NSString* outsideTemp = arry[2];
+    self.valueLabel.text = dataValue;
+    self.dateLabel.text = dateValue;
+    self.outsideLabel.text = outsideTemp;
+}
+
 - (void) loadChart {
     // load up device to use
     // if there is a device id then load that device
     // else then find the users devices and use the first one
+    [self.nestGraph setGraphOptions];
+    self.nestGraph.touchReportDelegate = self;
+    //self.nestGraph.parent = self;
     if (self.deviceUser && self.deviceUser.device) {
-        [self reloadChartForDeviceId:self.deviceUser.device.deviceId];
+        [self.nestGraph listen: self.deviceUser.device.deviceId];
+        //[self reloadChartForDeviceId:self.deviceUser.device.deviceId];
     } else {
-        [self loadUserDevices:self.faUser.userId];
+        [self.nestGraph findDevice: self.faUser.userId];
+        //[self loadUserDevices:self.faUser.userId];
     }
 }
 
+/*
 - (void) setGraphOptions {
     self.lineGraph.delegate = self;
     self.lineGraph.enableBezierCurve = YES;
@@ -70,7 +86,7 @@
     self.lineGraph.widthLine = 4.0;
     self.lineGraph.enablePopUpReport = YES;
     self.statsView.layer.borderColor = [UIColor colorWithRed:226/255.0 green:226.0/255.0 blue:226.0/255.0 alpha:1.0].CGColor;
-}
+}*/
 
 
 - (void) loadUserDevices:(NSString *)userId {
@@ -128,13 +144,14 @@
 }
 
 #pragma mark - Line Graph
+/*
 -(NSInteger)numberOfPointsInLineGraph:(BEMSimpleLineGraphView *)graph {
     return points.count;
 }
 
 -(CGFloat)lineGraph:(BEMSimpleLineGraphView *)graph valueForPointAtIndex:(NSInteger)index {
     return [[points objectAtIndex:index][@"value"] floatValue];
-}
+}*/
 
 /*
 -(NSString *)lineGraph:(BEMSimpleLineGraphView *)graph labelOnXAxisForIndex:(NSInteger)index {

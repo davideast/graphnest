@@ -32,6 +32,7 @@
 		634B462F19698C8500ECF659 /* FBSDevicesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 634B462E19698C8500ECF659 /* FBSDevicesViewController.m */; };
 		634B4632196A558B00ECF659 /* FBSDeviceUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 634B4631196A558B00ECF659 /* FBSDeviceUser.m */; };
 		634B4638196A5D8000ECF659 /* FBSDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 634B4637196A5D8000ECF659 /* FBSDevice.m */; };
+		634B463F196CA93400ECF659 /* FBSNestGraph.m in Sources */ = {isa = PBXBuildFile; fileRef = 634B463E196CA93400ECF659 /* FBSNestGraph.m */; };
 		7A493F631C324B57AAEFCD02 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F7290630D9DD42CCACC646AC /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -85,6 +86,8 @@
 		634B4631196A558B00ECF659 /* FBSDeviceUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FBSDeviceUser.m; sourceTree = "<group>"; };
 		634B4636196A5D8000ECF659 /* FBSDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBSDevice.h; sourceTree = "<group>"; };
 		634B4637196A5D8000ECF659 /* FBSDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FBSDevice.m; sourceTree = "<group>"; };
+		634B463D196CA93300ECF659 /* FBSNestGraph.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBSNestGraph.h; sourceTree = "<group>"; };
+		634B463E196CA93400ECF659 /* FBSNestGraph.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FBSNestGraph.m; sourceTree = "<group>"; };
 		F7290630D9DD42CCACC646AC /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -208,6 +211,8 @@
 				630EDA0C1965FD17000FE14C /* FBSGraphViewController.m */,
 				630EDA0E1965FD26000FE14C /* FBSMainViewController.h */,
 				630EDA0F1965FD26000FE14C /* FBSMainViewController.m */,
+				634B463D196CA93300ECF659 /* FBSNestGraph.h */,
+				634B463E196CA93400ECF659 /* FBSNestGraph.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -375,6 +380,7 @@
 				634B46201968981B00ECF659 /* MyColor.m in Sources */,
 				634B462319689B0000ECF659 /* FBSHotColor.m in Sources */,
 				634B4638196A5D8000ECF659 /* FBSDevice.m in Sources */,
+				634B463F196CA93400ECF659 /* FBSNestGraph.m in Sources */,
 				630ED9DA1965F742000FE14C /* main.m in Sources */,
 				634B4632196A558B00ECF659 /* FBSDeviceUser.m in Sources */,
 				630EDA071965FCEF000FE14C /* FBSFirebaseLoginViewController.m in Sources */,

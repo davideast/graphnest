@@ -26,7 +26,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self loadUserDevices:@"2"];
+    [self loadUserDevices:self.faUser.userId];
 }
 
 - (void) loadUserDevices:(NSString *)userId {
