@@ -14,13 +14,13 @@
 #define kGraphnestUsersNS @"https://graphnest.firebaseio.com/users"
 #define kGraphnestDevicesNS @"https://graphnest.firebaseio.com/devices"
 @implementation FBSNestGraph {
-    NSArray* points;
     NSArray* devices;
     Firebase* fb;
     Firebase* userDevicesRef;
 }
 
 @synthesize touchReportDelegate;
+@synthesize points;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -35,6 +35,11 @@
     self = [super init];
     [self setGraphOptions];
     return self;
+}
+
+- (void) setPoints:(NSArray *)newPoints {
+    NSLog(@"%@", newPoints);
+    //self.points = newPoints;
 }
 
 - (void) listen:(NSString *)deviceId {

@@ -16,8 +16,10 @@
 @interface FBSNestGraph : BEMSimpleLineGraphView <BEMSimpleLineGraphDelegate> {
     id touchReportDelegate;
 }
+@property (nonatomic, retain) NSArray* points;
 @property (nonatomic, retain) id<TouchReportDelegate> touchReportDelegate;
 - (void) setGraphOptions;
 - (void) listen:(NSString *)deviceId;
 - (void) findDevice:(NSString *)userId;
+- (void) setPoints:(NSArray *)newPoints;
 @end

@@ -22,7 +22,6 @@
         <!--Main View Controller-->
         <scene sceneID="Fdq-Ke-Od1">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="g0V-eJ-xN4" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="HGa-M8-w8r" customClass="FBSMainViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="6am-N6-qe3"/>
@@ -38,6 +37,7 @@
                         <segue destination="w14-AU-W4s" kind="modal" identifier="LOAD_GRAPH" id="ohw-uX-L4w"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="g0V-eJ-xN4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-903" y="978"/>
         </scene>
@@ -202,7 +202,6 @@
         <!--Graph View Controller-->
         <scene sceneID="NlH-25-WiF">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="PyF-sV-kww" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="w14-AU-W4s" customClass="FBSGraphViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="vgA-6k-1p7"/>
@@ -231,13 +230,6 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <slider hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="ts1-a9-DHz">
-                                <rect key="frame" x="18" y="526" width="284" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <connections>
-                                    <action selector="valueChanged:" destination="w14-AU-W4s" eventType="valueChanged" id="rh6-Vl-BJ2"/>
-                                </connections>
-                            </slider>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="u50-dC-LpS">
                                 <rect key="frame" x="20" y="374" width="320" height="144"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -284,6 +276,13 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.95294117647058818" green="0.95294117647058818" blue="0.95294117647058818" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="l8k-dq-zyv">
+                                <rect key="frame" x="18" y="526" width="284" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="doneSliding:" destination="w14-AU-W4s" eventType="touchUpInside" id="p44-cA-hlJ"/>
+                                </connections>
+                            </slider>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -293,13 +292,14 @@
                         <outlet property="dateLabel" destination="emi-fI-lEU" id="8AU-7d-WzI"/>
                         <outlet property="dateView" destination="2B6-g8-mqG" id="OdL-3B-Rbh"/>
                         <outlet property="devicesButton" destination="SLu-Xc-Geq" id="wO8-LF-iix"/>
-                        <outlet property="graphSlider" destination="ts1-a9-DHz" id="UrZ-0S-bfJ"/>
+                        <outlet property="graphSlider" destination="l8k-dq-zyv" id="hN3-kg-gA3"/>
                         <outlet property="nestGraph" destination="2oQ-dx-1fK" id="5eF-yQ-MUm"/>
                         <outlet property="outsideLabel" destination="dSV-d4-llM" id="KvA-In-IoJ"/>
                         <outlet property="statsView" destination="u50-dC-LpS" id="DUk-pM-xq7"/>
                         <outlet property="valueLabel" destination="yM1-9e-VQb" id="PUh-lj-P3X"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PyF-sV-kww" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-206" y="1546"/>
         </scene>
