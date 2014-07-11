@@ -61,13 +61,10 @@
     // else then find the users devices and use the first one
     [self.nestGraph setGraphOptions];
     self.nestGraph.touchReportDelegate = self;
-    //self.nestGraph.parent = self;
     if (self.deviceUser && self.deviceUser.device) {
         [self.nestGraph listen: self.deviceUser.device.deviceId];
-        //[self reloadChartForDeviceId:self.deviceUser.device.deviceId];
     } else {
         [self.nestGraph findDevice: self.faUser.userId];
-        //[self loadUserDevices:self.faUser.userId];
     }
 }
 

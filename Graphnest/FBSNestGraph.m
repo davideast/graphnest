@@ -109,7 +109,6 @@
     self.colorTop = [UIColor colorWithRed:0.0 green:140.0/255.0 blue:255.0/255.0 alpha:1.0];
     self.colorBottom = [UIColor colorWithRed:0.0 green:140.0/255.0 blue:255.0/255.0 alpha:1.0]; // Leaving this not-set on iOS 7 will default to your window's tintColor
     self.colorLine = [UIColor whiteColor];
-    //self.lineGraph.colorXaxisLabel = [UIColor whiteColor];
     self.widthLine = 4.0;
     self.enablePopUpReport = YES;
 }
@@ -144,14 +143,5 @@
     return [formatter stringFromDate:date];
 }
 
-
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
-}
-*/
 
 @end
