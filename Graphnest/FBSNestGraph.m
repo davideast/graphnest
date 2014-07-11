@@ -17,6 +17,7 @@
     NSArray* devices;
     Firebase* fb;
     Firebase* userDevicesRef;
+    NSArray* renderPoints;
 }
 
 @synthesize touchReportDelegate;
@@ -38,8 +39,8 @@
 }
 
 - (void) setPoints:(NSArray *)newPoints {
-    NSLog(@"%@", newPoints);
-    //self.points = newPoints;
+    renderPoints = newPoints;
+    [self reloadGraph];
 }
 
 - (void) listen:(NSString *)deviceId {
@@ -63,6 +64,7 @@
         [fb observeEventType:FEventTypeChildAdded withBlock:^(FDataSnapshot *snapshot) {
             [tempPoints addObject:snapshot.value];
             points = tempPoints;
+            renderPoints = points;
             [self reloadGraph];
         }];
         
@@ -113,11 +115,11 @@
 }
 
 -(NSInteger)numberOfPointsInLineGraph:(BEMSimpleLineGraphView *)graph {
-    return points.count;
+    return renderPoints.count;
 }
 
 -(CGFloat)lineGraph:(BEMSimpleLineGraphView *)graph valueForPointAtIndex:(NSInteger)index {
-    return [[points objectAtIndex:index][@"value"] floatValue];
+    return [[renderPoints objectAtIndex:index][@"value"] floatValue];
 }
 
 -(NSInteger)numberOfGapsBetweenLabelsOnLineGraph:(BEMSimpleLineGraphView *)graph {
@@ -125,9 +127,9 @@
 }
 
 - (void)lineGraph:(BEMSimpleLineGraphView *)graph didTouchGraphWithClosestIndex:(NSInteger)index {
-    NSString* dataValue = [NSString stringWithFormat:@"%@", [points objectAtIndex:index][@"value"]];
+    NSString* dataValue = [NSString stringWithFormat:@"%@", [renderPoints objectAtIndex:index][@"value"]];
     NSString* dateValue = [self formatDate:@"EEEE, MMMM dd" atIndex:index];
-    NSString* outsideValue = [NSString stringWithFormat:@"%@", [points objectAtIndex:index][@"outsideTemp"]];
+    NSString* outsideValue = [NSString stringWithFormat:@"%@", [renderPoints objectAtIndex:index][@"outsideTemp"]];
     if([self.touchReportDelegate respondsToSelector:@selector(getReportData:)])
     {
         [self.touchReportDelegate getReportData: [[NSArray alloc] initWithObjects:dataValue, dateValue, outsideValue, nil]];
@@ -135,7 +137,7 @@
 }
 
 -(NSString *)formatDate:(NSString *)format atIndex:(int) index{
-    NSNumber *testTime = [points objectAtIndex:index][@"timestamp"];
+    NSNumber *testTime = [renderPoints objectAtIndex:index][@"timestamp"];
     NSDate *date = [NSDate dateWithTimeIntervalSince1970: testTime.doubleValue / 1000];
     NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
     formatter.dateFormat = format;
